@@ -139,9 +139,39 @@ export default function Projects() {
                     <span className="w-3 h-3 rounded-full bg-[#febc2e]" />
                     <span className="w-3 h-3 rounded-full bg-[#28c840]" />
                   </div>
-                  <span className="text-4xl group-hover:scale-110 transition-transform duration-300">
-                    {ICONS[i % ICONS.length]}
-                  </span>
+            <div className="flex gap-3 flex-wrap justify-center px-4">
+              {project.techStack?.slice(0, 3).map(tech => (
+                <img
+                  key={tech}
+                  src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${
+                    tech.toLowerCase()
+                      .replace('spring boot', 'spring')
+                      .replace('react.js', 'react')
+                      .replace('spring webflux', 'spring')
+                      .replace('spring mvc', 'spring')
+                      .replace('rest apis', 'fastapi')
+                      .replace('aws cloudwatch', 'amazonwebservices')
+                      .replace('.js', '')
+                      .replace(' ', '')
+                  }/${
+                    tech.toLowerCase()
+                      .replace('spring boot', 'spring')
+                      .replace('react.js', 'react')
+                      .replace('spring webflux', 'spring')
+                      .replace('spring mvc', 'spring')
+                      .replace('rest apis', 'fastapi')
+                      .replace('aws cloudwatch', 'amazonwebservices')
+                      .replace('.js', '')
+                      .replace(' ', '')
+                  }-original.svg`}
+                  alt={tech}
+                  className="w-10 h-10 object-contain"
+                  onError={e => {
+                    e.target.style.display = 'none';
+                  }}
+                />
+              ))}
+            </div>
 
                   {/* Category badge */}
                   <span className={`absolute top-3 right-3 text-xs px-2 py-0.5 rounded border font-mono ${

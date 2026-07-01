@@ -34,8 +34,8 @@ export default function About() {
               <img
                 src={data?.avatarUrl}
                 alt={data?.name}
-                onError={e => e.target.src = `https://ui-avatars.com/api/?name=${data?.name}&background=1f2d1f&color=3fb950&size=400`}
-                className="w-full rounded-2xl border border-[#21262d]"
+                onError={e => e.target.src = `https://ui-avatars.com/api/?name=${data?.name}&background=1f2d1f&color=3fb950&size=300`}
+                className="w-full h-80 object-cover object-[center_20%] rounded-2xl relative z-10"
               />
               <div className="absolute inset-0 rounded-2xl ring-1 ring-[#3fb950]/20" />
             </div>
@@ -63,7 +63,9 @@ export default function About() {
 
             <div className="flex gap-3 flex-wrap">
               <a href="#contact" className="btn-primary text-sm">Get In Touch</a>
-              <a href={data?.resumeUrl} className="btn-secondary text-sm">Resume</a>
+              <a href={data?.resumeUrl} target="_blank" rel="noreferrer" className="btn-secondary text-sm">
+                Resume ↗
+              </a>
             </div>
           </motion.div>
         </div>

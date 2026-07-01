@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { sendContact } from '../services/api';
+import { useProfile } from '../hooks/usePortfolioData';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState('');
   const [apiErrors, setApiErrors] = useState({});
+  const { data: profile } = useProfile();
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.15 });
 
   const handleChange = e => {
@@ -66,11 +68,12 @@ export default function Contact() {
             </p>
 
             <div className="flex flex-col gap-4">
-              {[
-                { icon: '✉️', label: 'Email', value: 'nnnagarajan16@gmail.com' },
-                { icon: '📍', label: 'Location', value: 'Chennai, Tamil Nadu, India' },
-                { icon: '💼', label: 'Status', value: 'Open to work' },
-              ].map(item => (
+                  {[
+                    { icon: '✉️', label: 'Email', value: profile?.email || 'nnnagarajan16@gmail.com' },
+                    { icon: '📞', label: 'Phone', value: profile?.phone || '+91 9003312426' },
+                    { icon: '📍', label: 'Location', value: profile?.location || 'Chennai, Tamil Nadu, India' },
+                    { icon: '💼', label: 'Status', value: 'Open to work' },
+                  ].map(item => (
                 <div
                   key={item.label}
                   className="card rounded-xl p-4 flex items-center gap-4"

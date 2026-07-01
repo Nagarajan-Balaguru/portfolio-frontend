@@ -15,9 +15,18 @@ function SkillCard({ skill, index, inView }) {
       className="card rounded-xl p-4 group"
     >
       <div className="flex justify-between items-center mb-3">
+      <div className="flex items-center gap-2 mb-3">
+        <img
+          src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${
+            skill.icon}/${skill.icon}-original.svg`}
+          alt={skill.name}
+          className="w-6 h-6 object-contain"
+          onError={e => e.target.style.display = 'none'}
+        />
         <span className="text-[#e6edf3] text-sm font-medium group-hover:text-[#3fb950] transition-colors">
           {skill.name}
         </span>
+      </div>
         <span className="text-[#3fb950] text-xs font-mono">{skill.proficiency}%</span>
       </div>
       <div className="w-full bg-[#21262d] rounded-full h-1.5">

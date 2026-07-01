@@ -106,11 +106,11 @@ export default function Hero() {
                 src={data?.avatarUrl}
                 alt={data?.name}
                 onError={e => e.target.src = `https://ui-avatars.com/api/?name=${data?.name}&background=1f2d1f&color=3fb950&size=300`}
-                className="w-full h-full object-cover rounded-2xl relative z-10"
+                className="w-full h-full object-cover object-[center_20%] rounded-2xl relative z-10"
               />
               {/* Stats badge */}
-              <div className="absolute -bottom-4 -right-4 card rounded-xl px-4 py-2 z-20">
-                <p className="text-[#3fb950] font-bold text-lg">3+</p>
+              <div className="absolute -bottom-3 -right-3 md:-bottom-4 md:-right-4 card rounded-xl px-3 py-1.5 md:px-4 md:py-2 z-20 shadow-lg">
+                <p className="text-[#3fb950] font-bold text-base md:text-lg">3+</p>
                 <p className="text-[#8b949e] text-xs">Years Exp.</p>
               </div>
             </div>
