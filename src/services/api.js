@@ -19,5 +19,5 @@ export const getProfile = () => api.get('/profile');
 export const getSkills = () => api.get('/skills');
 export const getProjects = () => api.get('/projects');
 export const getExperience = () => api.get('/experience');
-export const sendContact = (data) => api.post('/contact', data);
 export const getEducation = () => api.get('/education');
+export const sendContact = (data) => api.post('/contact', data);
