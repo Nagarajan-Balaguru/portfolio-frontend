@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { NAV_LINKS } from '../utils/constants';
 
-const links = ['About', 'Skills', 'Projects', 'Experience', 'Contact'];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -19,7 +19,7 @@ export default function Navbar() {
       (entries) => entries.forEach(e => e.isIntersecting && setActive(e.target.id)),
       { threshold: 0.4 }
     );
-    links.forEach(l => {
+    NAV_LINKS.forEach(l => {
       const el = document.getElementById(l.toLowerCase());
       if (el) observer.observe(el);
     });
@@ -40,11 +40,11 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <a href="#hero" className="text-lg font-bold text-white flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#3fb950] inline-block" />
-          Nagarajan
+          Nagarajan Balaguru
         </a>
 
         <ul className="hidden md:flex gap-6 items-center">
-          {links.map(link => (
+          {NAV_LINKS.map(link => (
             <li key={link}>
               <a
                 href={`#${link.toLowerCase()}`}
@@ -82,7 +82,7 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden bg-[#161b22] border-b border-[#21262d] px-6 py-4 flex flex-col gap-4"
         >
-          {links.map(link => (
+        {NAV_LINKS.map(link => (
             <a key={link} href={`#${link.toLowerCase()}`}
               className="text-[#8b949e] hover:text-white text-sm"
               onClick={() => setOpen(false)}>

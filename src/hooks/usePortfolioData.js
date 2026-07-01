@@ -52,3 +52,18 @@ export const useExperience = () => {
 
   return { data, loading };
 };
+
+import { getEducation } from '../services/api';
+
+export const useEducation = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getEducation()
+      .then(res => setData(res.data))
+      .finally(() => setLoading(false));
+  }, []);
+
+  return { data, loading };
+};

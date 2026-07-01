@@ -73,7 +73,9 @@ export default function Hero() {
               className="flex gap-3 flex-wrap justify-center md:justify-start"
             >
               <a href="#projects" className="btn-primary">View Projects</a>
-              <a href={data?.resumeUrl} className="btn-secondary">Download CV</a>
+              <a href={data?.resumeUrl} target="_blank" rel="noreferrer" className="btn-secondary">
+  Download CV
+</a>
             </motion.div>
 
             <motion.div
