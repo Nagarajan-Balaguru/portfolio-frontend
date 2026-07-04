@@ -38,12 +38,12 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#hero" className="text-lg font-bold text-white flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#3fb950] inline-block" />
-          Nagarajan Balaguru
+        <a href="#hero" className="text-base lg:text-lg font-bold text-white flex items-center gap-2 truncate">
+          <span className="w-2 h-2 rounded-full bg-[#3fb950] inline-block flex-shrink-0" />
+          <span className="truncate">Nagarajan Balaguru</span>
         </a>
 
-        <ul className="hidden md:flex gap-6 items-center">
+        <ul className="hidden lg:flex gap-6 items-center">
           {NAV_LINKS.map(link => (
             <li key={link}>
               <a
@@ -66,7 +66,7 @@ export default function Navbar() {
           </li>
         </ul>
 
-        <button className="md:hidden text-[#8b949e] hover:text-white" onClick={() => setOpen(!open)}>
+        <button className="lg:hidden text-[#8b949e] hover:text-white flex-shrink-0" onClick={() => setOpen(!open)}>
           <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             {open
               ? <path strokeLinecap="round" d="M6 18L18 6M6 6l12 12" />
@@ -80,15 +80,20 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-[#161b22] border-b border-[#21262d] px-6 py-4 flex flex-col gap-4"
+          className="lg:hidden bg-[#161b22] border-b border-[#21262d] px-6 py-4 flex flex-col gap-4"
         >
-        {NAV_LINKS.map(link => (
+          {NAV_LINKS.map(link => (
             <a key={link} href={`#${link.toLowerCase()}`}
               className="text-[#8b949e] hover:text-white text-sm"
               onClick={() => setOpen(false)}>
               {link}
             </a>
           ))}
+          <a href="#contact"
+            className="btn-primary text-sm text-center"
+            onClick={() => setOpen(false)}>
+            Hire Me
+          </a>
         </motion.div>
       )}
     </motion.nav>
